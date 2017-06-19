@@ -1,4 +1,5 @@
 class MyApp < Sinatra::Base
+
   get "/assets/*" do
     settings.sprockets.logger = env['rack.logger'] unless settings.production?
     env["PATH_INFO"].sub!("/assets", "")

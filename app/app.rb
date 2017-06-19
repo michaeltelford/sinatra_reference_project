@@ -11,8 +11,6 @@ class MyApp < Sinatra::Base
   require 'byebug' unless production?
 
   configure :development do
-    enable :show_exceptions
-
     require "sinatra/reloader"
     register Sinatra::Reloader
   end
