@@ -13,7 +13,7 @@ end
 
 # required by rack-test
 def app
-  MyApp.new
+  App.new
 end
 
 # helper methods for all tests go below...

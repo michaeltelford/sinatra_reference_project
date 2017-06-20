@@ -1,7 +1,6 @@
-class MyApp < Sinatra::Base
+class App < Sinatra::Base
   # place any routes below...
   get "/assets/*" do
-    settings.sprockets.logger = env['rack.logger'] unless settings.production?
     env["PATH_INFO"].sub!("/assets", "")
     settings.sprockets.call(env)
   end

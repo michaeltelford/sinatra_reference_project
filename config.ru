@@ -1,3 +1,3 @@
 require './app/app'
 
-run MyApp.new
+run App.new

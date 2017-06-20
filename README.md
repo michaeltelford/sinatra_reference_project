@@ -6,9 +6,11 @@ Use this repo as a way to learn or fork the repo as a starting point for other S
 
 ## Configured tech
 
+- Pre-configured `sinatra` web app
 - `thin` web server
 - `erb` templating engine
-- `sprockets` for asset management
+- `sprockets` for asset management (using SCSS and CoffeeScript)
+- `sprockets-helpers` for asset retrieval
 
 ## Usage
 

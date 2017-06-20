@@ -1,12 +1,15 @@
+require 'thin'
 require 'sinatra/base'
 require 'sprockets'
+require 'sinatra/sprockets-helpers'
 require 'uglifier'
 require 'sass'
 require 'coffee-script'
 require 'execjs'
 require 'erb'
+require_relative 'helpers'
 
-class MyApp < Sinatra::Base
+class App < Sinatra::Base
   # place any initialisation/configuration code below...
   require 'byebug' unless production?
 
@@ -15,20 +18,34 @@ class MyApp < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  configure :production, :development do
+  configure :development, :production do
     enable :logging
   end
 
-  configure :production, :development, :test do
-    set :sprockets, Sprockets::Environment.new(root)
+  configure :development, :production, :test do
+    register Sinatra::Sprockets::Helpers
 
-    sprockets.append_path "assets/stylesheets"
-    sprockets.append_path "assets/javascripts"
-    sprockets.append_path "assets/images"
+    set :server, 'thin'
+    set :sprockets, Sprockets::Environment.new(root)
+    set :assets_dir, 'assets'
+    set :assets_prefix, Proc.new { "/#{assets_dir}" }
+    set :digest_assets, production?
+
+    sprockets.append_path File.join(root, assets_dir, 'stylesheets')
+    sprockets.append_path File.join(root, assets_dir, 'javascripts')
+    sprockets.append_path File.join(root, assets_dir, 'images')
 
     sprockets.js_compressor  = :uglify
     sprockets.css_compressor = :scss
+
+    configure_sprockets_helpers do |config|
+      # Force debug mode when in development, which sets:
+      # expand = true, digest = false, manifest = false
+      config.debug = development?
+    end
   end
+
+  helpers Helpers
 end
 
 require_relative 'routes'
