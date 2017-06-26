@@ -1,18 +1,19 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 gem "bundler", "~> 1.14"
 gem "rake", "~> 10.0"
-gem 'rack'
-gem 'rack-protection'
-gem 'thin'
-gem 'sinatra'
+gem "rack"
+gem "rack-protection"
+gem "thin"
+gem "sinatra"
 gem "sinatra-contrib"
-gem 'sprockets'
-gem 'sprockets-helpers'
-gem 'uglifier'
-gem 'sass'
-gem 'coffee-script'
-gem 'execjs'
+gem "slim"
+gem "sprockets"
+gem "sprockets-helpers"
+gem "uglifier"
+gem "sass"
+gem "coffee-script"
+gem "execjs"
 
 group :development, :test do
   gem "minitest", "~> 5.0"

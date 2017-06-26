@@ -6,7 +6,7 @@ class App < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    slim :index
   end
 
   get '/healthcheck' do

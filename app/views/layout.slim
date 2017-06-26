@@ -1,0 +1,11 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    title Sinatra App
+    == stylesheet_tag 'app', :expand => settings.development?
+
+  body
+    #content
+      == yield
+    == javascript_tag 'app', :expand => settings.development?

@@ -1,12 +1,12 @@
 require 'thin'
 require 'sinatra/base'
+require 'slim'
 require 'sprockets'
 require 'sinatra/sprockets-helpers'
 require 'uglifier'
 require 'sass'
 require 'coffee-script'
 require 'execjs'
-require 'erb'
 require_relative 'helpers'
 
 class App < Sinatra::Base
