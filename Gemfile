@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "bundler", "~> 1.14"
 gem "rake", "~> 10.0"
+gem "dotenv"
 gem "rack"
 gem "rack-protection"
 gem "thin"

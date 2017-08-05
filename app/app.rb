@@ -1,3 +1,4 @@
+require 'dotenv'
 require 'thin'
 require 'sinatra/base'
 require 'slim'
@@ -9,8 +10,9 @@ require 'coffee-script'
 require 'execjs'
 require_relative 'helpers'
 
+# place any initialisation/configuration code below...
 class App < Sinatra::Base
-  # place any initialisation/configuration code below...
+  Dotenv.load # load .env file into ENV
   require 'byebug' unless production?
 
   configure :development do

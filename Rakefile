@@ -1,7 +1,8 @@
-require "rake/testtask"
+require 'rake/testtask'
+require 'dotenv/tasks'
 
 DEV_PORT  = 8080
-PROD_PORT = 80
+DEFAULT_PROD_PORT = 80
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -9,16 +10,17 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList['test/**/*_test.rb']
 end
 
-task :default => :test
+task default: :test
 
-desc "Start the application on port #{DEV_PORT}"
+desc "Start the app on port #{DEV_PORT}"
 task :serve do
   system "RACK_ENV=development bundle exec rackup -p #{DEV_PORT}"
 end
 
-desc "Start the application in production on port #{PROD_PORT}"
-task :serve! do
-  system "RACK_ENV=production bundle exec rackup -p #{PROD_PORT}"
+desc "Start the app in production on ENV['PORT'] or port #{DEFAULT_PROD_PORT}"
+task serve!: :dotenv do
+  port = ENV['PORT'] || DEFAULT_PROD_PORT
+  system "RACK_ENV=production bundle exec rackup -p #{port}"
 end
 
 desc "Open the app in a browser"

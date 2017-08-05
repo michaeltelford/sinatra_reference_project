@@ -10,6 +10,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     daemons (1.2.4)
+    dotenv (2.2.1)
     eventmachine (1.2.3)
     execjs (2.7.0)
     method_source (0.8.2)
@@ -64,6 +65,7 @@ DEPENDENCIES
   bundler (~> 1.14)
   byebug
   coffee-script
+  dotenv
   execjs
   minitest (~> 5.0)
   pry
