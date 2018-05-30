@@ -1,11 +1,11 @@
+# App routes/controllers.
 class App < Sinatra::Base
-  # place any routes below...
-  get "/assets/*" do
-    env["PATH_INFO"].sub!("/assets", "")
+  get '/assets/*' do
+    env['PATH_INFO'].sub!('/assets', '')
     settings.sprockets.call(env)
   end
 
-  get "/" do
+  get '/' do
     slim :index
   end
 

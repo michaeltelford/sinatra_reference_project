@@ -22,18 +22,18 @@ class AssetsTest < Minitest::Test
   def test_asset_app_css_helper
     refute_empty stylesheet_tag 'app'
   rescue
-    flunk "image_path helper error"
+    flunk 'stylesheet_tag helper error'
   end
 
   def test_asset_app_js_helper
     refute_empty javascript_tag 'app'
   rescue
-    flunk "image_path helper error"
+    flunk 'javascript_tag helper error'
   end
 
   def test_asset_sinatrarb_png_helper
     refute_empty image_path 'sinatrarb.png'
   rescue
-    flunk "image_path helper error"
+    flunk 'image_path helper error'
   end
 end

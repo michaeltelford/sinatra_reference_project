@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AppTest < Minitest::Test
-
   def test_index
     get '/'
     refute_empty_response

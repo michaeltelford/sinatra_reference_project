@@ -10,13 +10,13 @@ require 'coffee-script'
 require 'execjs'
 require_relative 'helpers'
 
-# place any initialisation/configuration code below...
+# App init, place any initialisation/configuration code below...
 class App < Sinatra::Base
   Dotenv.load # load .env file into ENV
   require 'byebug' unless production?
 
   configure :development do
-    require "sinatra/reloader"
+    require 'sinatra/reloader'
     register Sinatra::Reloader
   end
 
@@ -30,7 +30,7 @@ class App < Sinatra::Base
     set :server, 'thin'
     set :sprockets, Sprockets::Environment.new(root)
     set :assets_dir, 'assets'
-    set :assets_prefix, Proc.new { "/#{assets_dir}" }
+    set :assets_prefix, proc { "/#{assets_dir}" }
     set :digest_assets, production?
 
     sprockets.append_path File.join(root, assets_dir, 'stylesheets')

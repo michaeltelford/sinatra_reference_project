@@ -6,7 +6,7 @@ Use this repo as a way to learn or fork the repo as a starting point for other S
 
 ## Configured tech
 
-- Pre-configured `sinatra` web app
+- `sinatra` web app (pre-configured)
 - `rake` tasks for running the app
 - `thin` web server
 - `slim` templating engine
@@ -16,15 +16,18 @@ Use this repo as a way to learn or fork the repo as a starting point for other S
 
 ## Usage
 
-To run the application server, use the command:
+Install the deps with:
 
-    $ bundle exec rake serve
-    $ curl http://localhost:8080
+    $ bundle
+
+Run the application server and browse to it with:
+
+    $ bundle exec rake browse
+
+Run the tests with:
+
+    $ bundle exec rake test
 
 See the rake tasks for more usage commands with:
 
     $ bundle exec rake -T
-
-To run the tests, use the command:
-
-    $ bundle exec rake test

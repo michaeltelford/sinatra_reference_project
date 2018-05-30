@@ -1,3 +1,3 @@
+# Helpers module for route and template handlers.
 module Helpers
-  # place any route and template handlers below...
 end
